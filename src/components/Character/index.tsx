@@ -5,8 +5,9 @@ type Props = {
   x: number;
   y: number;
   side: CharacterSides;
+  name: string;
 };
-export const Character = ({ x, y, side }: Props) => {
+export const Character = ({ x, y, side, name }: Props) => {
   //all quadrate has a size 30x30, so to move the position is only multiply by size
   const size = 30;
   const sides = {
@@ -21,6 +22,8 @@ export const Character = ({ x, y, side }: Props) => {
       left={x * size}
       top={y * size}
       sidePos={sides[side] ?? 0}
-    ></C.Container>
+    >
+      <C.nameBox>{name}</C.nameBox>
+    </C.Container>
   );
 };

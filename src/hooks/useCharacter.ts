@@ -2,7 +2,9 @@ import { useState } from "react";
 import { CharacterSides } from "../types/CharacterSides";
 import { mapSpots } from "../data/mapSpots";
 
-export const useCharacter = () => {
+export const useCharacter = (propName: string) => {
+  const [name, setName] = useState(propName);
+
   //the new character starts with this position
   const [pos, setPos] = useState({ x: 3, y: 5 });
   const [side, setSide] = useState<CharacterSides>("down");
@@ -42,8 +44,6 @@ export const useCharacter = () => {
   };
 
   const canMove = (x: number, y: number) => {
-    if (x < 0 || y < 0) return false;
-
     if (mapSpots[y] !== undefined && mapSpots[y][x] !== undefined) {
       if (mapSpots[y][x] === 1) return true;
     }
@@ -51,6 +51,7 @@ export const useCharacter = () => {
   };
 
   return {
+    name,
     x: pos.x,
     y: pos.y,
     side: side,

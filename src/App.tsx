@@ -5,7 +5,9 @@ import { useCharacter } from "./hooks/useCharacter";
 
 const App = () => {
   //the function useCharacter loads all inside  useCharacter.ts file
-  const char = useCharacter();
+  const char = useCharacter("Gah");
+  //duplicate char
+  const char2 = useCharacter("Peter");
 
   useEffect(() => {
     window.addEventListener("keydown", handlekeyDown);
@@ -37,8 +39,21 @@ const App = () => {
   return (
     <C.Container>
       <C.Map>
-        <Character x={char.x} y={char.y} side={char.side} />
+        <Character x={char.x} y={char.y} side={char.side} name={char.name} />
+
+        {/* duplicate char */}
+        <Character
+          x={char2.x}
+          y={char2.y}
+          side={char2.side}
+          name={char2.name}
+        />
       </C.Map>
+      {/* buttons to move char2 */}
+      <C.Button onClick={() => char2.moveLeft()}>Left</C.Button>
+      <C.Button onClick={() => char2.moveRight()}>Right</C.Button>
+      <C.Button onClick={() => char2.moveUp()}>Up</C.Button>
+      <C.Button onClick={() => char2.moveDown()}>Down</C.Button>
     </C.Container>
   );
 };
