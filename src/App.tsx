@@ -1,5 +1,15 @@
 import * as C from "./App.styles";
+import { Character } from "./components/Character";
 
-const app = () => {
-  return <></>;
+const App = () => {
+  return (
+    <C.Container>
+      <C.Map>
+        <Character></Character>
+      </C.Map>
+      ;
+    </C.Container>
+  );
 };
+
+export default App;

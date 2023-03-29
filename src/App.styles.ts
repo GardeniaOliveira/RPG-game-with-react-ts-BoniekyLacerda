@@ -1,3 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  background-color: #24272f;
+  min-height: 100vh;
+  color: white;
+`;
+
+export const Map = styled.div`
+  height: 480px;
+  width: 480px;
+  background-image: url("/assets/map.png");
+  background-position: left top;
+  background-size: 100%;
+`;
